@@ -1,0 +1,43 @@
+<head>
+  <title>Projects</title>
+</head>
+<app-task-list></app-task-list>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<body>
+    <div class="sidenav">
+
+
+
+        <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Projects
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <label *ngFor="let project of projects">
+                <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+                    <input type="hidden" name="id" [(ngModel)]="project.id" required />
+
+                    <div class="form-group">
+
+                        <button class="btn btn-default" value={{project.name}}>
+                            {{project.name}}
+                        </button>
+                    </div>
+                </form>
+            </label>
+            <label>
+              <div class="form-group">
+                <button class="btn btn-default" (click)="onCreate()" *ngIf="showCreateButton">
+                  <i class="fa fa-plus" aria-hidden="true"></i> Add Project
+                </button>
+              </div>
+            </label>
+        </mat-expansion-panel>
+    </div>
+
+
+</body>
